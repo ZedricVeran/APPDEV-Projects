@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>        
+    </head>
+    <body>
+        <form onsubmit="return processForm()">
+            <label for="name">Enter your name</label>
+            <input type="text" id="name" required>
+            <button type="submit"></button>
+        </form>
+        <script>
+            processForm= () => {
+                let userName = document.getElementById
+                ("name").value
+                alert("Hello " + userName + "!")
+                return false;
+                //so that we have return type to our form
+                
+            }
+        </script>
+    </body>
+</html>

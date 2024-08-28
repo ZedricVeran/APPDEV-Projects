@@ -90,7 +90,7 @@ btn5.addEventListener("click", () =>{
 //item 6
 const btn6 = document.getElementById("btn6")
 //display output
-btn5.addEventListener("click", () =>{
+btn6.addEventListener("click", () =>{
     //create and intialize
     let cookie = document.getElementById("cookie").value
     let cook = parseFloat(cookie)
@@ -101,4 +101,23 @@ btn5.addEventListener("click", () =>{
 
     document.getElementById("output6").innerHTML= x
 })
+
+//item 6
+const btn7 = document.getElementById("btn7")
+//display output
+btn7.addEventListener("click", () =>{
+    //create and intialize
+    let male = document.getElementById("male").value
+    let female = document.getElementById("female").value
+    let fmale = parseInt(male)
+    let ffemale = parseInt(female)
+
+    let y = fmale + ffemale
+    fmale/=y
+    ffemale/=y
+    let x = `Total ratio of students : male: ${fmale*100}% female: ${ffemale*100}`
+
+    document.getElementById("output7").innerHTML= x
+})
+
 

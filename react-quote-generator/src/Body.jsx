@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 export default function Body() {
     const randomQuote = [
         "\"A good decision is based on knowledge and not on numbers.\"",
@@ -5,40 +7,43 @@ export default function Body() {
         "\"There is no harm in repeating a good thing.\"",
         "\"Truth is the beginning of every good to the gods, and of every good to man.\"",
         "\"Knowledge without justice ought to be\""
-    ]
-    
-    
-    
-    const [quote,setQuote] = useState("\"A good decision is based on knowledge and not on numbers.\"")
-    
+    ];
+
+    const [quote, setQuote] = useState(randomQuote[0]); // Initial quote
+    const [index, setIndex] = useState(0); // State to keep track of the current index
+
     function getRandomNumber() {
-        return Math.floor(Math.random()*randomColor.length)
-
+        return Math.floor(Math.random() * randomQuote.length);
     }
 
-    function getRandomQuote(){
-        let quotes=randomQuote[getRandomNumber()] 
+    function getRandomQuote() {
+        return randomQuote[getRandomNumber()];
     }
 
-    function randomQuoteChange(){
-        
+    function randomQuoteChange() {
+        setQuote(getRandomQuote());
     }
-  
-  
+
+    function orderQuoteChange() {
+        const nextIndex = (index + 1) % randomQuote.length; // Cycle through the quotes
+        setQuote(randomQuote[nextIndex]); // Set the next quote
+        setIndex(nextIndex); // Update the index
+    }
+
     return (
-    <body>
-      <main>
-        <div class="container">
-          <h2>
-            Plato:
-            <span class="quote">
-              "A good decision is based on knowledge and not on numbers."
-            </span>
-          </h2>
-          <button class="btn btn-hero" id="btn">Randomize</button>
-          <button class="btn btn-hero" id="btn">Order</button>
+        <div>
+            <main>
+                <div className="container">
+                    <h2>
+                        Plato:
+                        <span className="quote">
+                            {quote}
+                        </span>
+                    </h2>
+                    <button className="btn btn-hero" id="btn" onClick={randomQuoteChange}>Randomize</button>
+                    <button className="btn btn-hero" id="btn" onClick={orderQuoteChange}>Order</button>
+                </div>
+            </main>
         </div>
-      </main>
-    </body>
-  );
+    );
 }

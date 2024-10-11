@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './PokemonCard.css';
 
-function PokemonCard({ name, url }) {
+function PokemonCard({ name, url, onClick }) {
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function PokemonCard({ name, url }) {
   }, [url]);
 
   return (
-    <div className="pokemon-card">
+    <div className="pokemon-card" onClick={() => onClick(url)}>
       {pokemonDetails ? (
         <>
           <img
@@ -41,6 +41,7 @@ function PokemonCard({ name, url }) {
 PokemonCard.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default PokemonCard;

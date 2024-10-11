@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Pokedex from './Pokedex';
+import PokemonModal from './PokemonModal';
 import './App.css';
-
 
 function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   useEffect(() => {
-    // Fetch Pokémon from the API limited to Kanto (1 to 151)
     const fetchPokemon = async () => {
       setLoading(true);
       try {
@@ -25,15 +25,29 @@ function App() {
     fetchPokemon();
   }, []);
 
-  // Handle search functionality
   const handleSearch = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
 
-  // Filter the Pokémon list based on the search term
   const filteredPokemonList = pokemonList.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchTerm)
   );
+
+  // Handle clicking a Pokémon card
+  const handleCardClick = async (url) => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setSelectedPokemon(data);
+    } catch (error) {
+      console.error('Error fetching Pokémon details:', error);
+    }
+  };
+
+  // Handle closing the modal
+  const handleCloseModal = () => {
+    setSelectedPokemon(null);
+  };
 
   return (
     <div className="App">
@@ -47,7 +61,10 @@ function App() {
       {loading ? (
         <p>Loading Pokémon...</p>
       ) : (
-        <Pokedex pokemonList={filteredPokemonList} />
+        <Pokedex pokemonList={filteredPokemonList} onCardClick={handleCardClick} />
+      )}
+      {selectedPokemon && (
+        <PokemonModal pokemon={selectedPokemon} onClose={handleCloseModal} />
       )}
     </div>
   );

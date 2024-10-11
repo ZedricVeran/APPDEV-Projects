@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import PokemonCard from './PokemonCard';
 import './Pokedex.css';
 
-function Pokedex({ pokemonList }) {
+function Pokedex({ pokemonList, onCardClick }) {
   return (
     <div className="pokedex">
       {pokemonList.map((pokemon, index) => (
-        <PokemonCard key={index} name={pokemon.name} url={pokemon.url} />
+        <PokemonCard key={index} name={pokemon.name} url={pokemon.url} onClick={onCardClick} />
       ))}
     </div>
   );
@@ -20,6 +20,7 @@ Pokedex.propTypes = {
       url: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onCardClick: PropTypes.func.isRequired,
 };
 
 export default Pokedex;

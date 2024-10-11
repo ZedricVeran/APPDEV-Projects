@@ -50,22 +50,30 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Pokédex</h1>
-      <input
-        type="text"
-        placeholder="Search Pokémon"
-        value={searchTerm}
-        onChange={handleSearch}
-      />
-      {loading ? (
-        <p>Loading Pokémon...</p>
-      ) : (
-        <Pokedex pokemonList={filteredPokemonList} onCardClick={handleCardClick} />
-      )}
-      {selectedPokemon && (
-        <PokemonModal pokemon={selectedPokemon} onClose={handleCloseModal} />
-      )}
+    <div>
+      {/* Fixed Header */}
+      <div className="fixed-header">
+        <h1>Pokédex</h1>
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search Pokémon"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
+      </div>
+
+      {/* Pokémon List */}
+      <div className="pokedex-container">
+        {loading ? (
+          <p>Loading Pokémon...</p>
+        ) : (
+          <Pokedex pokemonList={filteredPokemonList} onCardClick={handleCardClick} />
+        )}
+        {selectedPokemon && (
+          <PokemonModal pokemon={selectedPokemon} onClose={handleCloseModal} />
+        )}
+      </div>
     </div>
   );
 }

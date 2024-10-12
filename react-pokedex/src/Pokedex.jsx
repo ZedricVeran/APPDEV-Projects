@@ -7,7 +7,12 @@ function Pokedex({ pokemonList, onCardClick }) {
   return (
     <div className="pokedex">
       {pokemonList.map((pokemon, index) => (
-        <PokemonCard key={index} name={pokemon.name} url={pokemon.url} onClick={onCardClick} />
+        <PokemonCard
+          key={index}
+          name={pokemon.name}
+          url={pokemon.url}
+          onClick={onCardClick}
+        />
       ))}
     </div>
   );

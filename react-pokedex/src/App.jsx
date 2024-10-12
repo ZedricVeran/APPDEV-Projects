@@ -53,7 +53,7 @@ function App() {
     <div>
       {/* Fixed Header */}
       <div className="fixed-header">
-        <h1>Pokédex</h1>
+        <h1>Pokédex (Kanto)</h1>
         <input
           className="search-bar"
           type="text"

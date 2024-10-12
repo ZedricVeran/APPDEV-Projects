@@ -1,13 +1,27 @@
 .pokemon-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    width: 150px;
-    background-color: #f8f8f8;
-  }
-  
-  .pokemon-card img {
-    width: 100px;
-    height: 100px;
-  }
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px; /* Adjusted padding for better spacing */
+  text-align: center;
+  width: 150px; /* Ensure consistent width */
+  background-color: #f8f8f8;
+  cursor: pointer; /* Indicate that the card is clickable */
+}
+
+.pokemon-card img {
+  width: 100px; /* Adjust the size of the image */
+  height: 100px; /* Maintain aspect ratio */
+}
+
+/* Style for Pokémon types */
+.pokemon-card p {
+  margin: 5px 0; /* Add some margin for spacing */
+}
+
+.pokemon-card .type {
+  display: inline-block; /* Align types next to each other */
+  padding: 2px 5px; /* Add some padding */
+  border-radius: 5px; /* Rounded corners */
+  margin: 2px; /* Margin between types */
+  color: white; /* Text color */
+}

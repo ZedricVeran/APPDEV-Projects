@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './PokemonModal.css'; // Optional: Add your own styles for the modal
+import './PokemonModal.css';
 
 function PokemonModal({ pokemon, onClose }) {
   if (!pokemon) return null; // If no Pokémon is selected, return null

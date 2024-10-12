@@ -10,7 +10,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Center align header contents */
 }
 
 /* Search bar styling */
@@ -36,11 +36,17 @@
 /* Adjusted margin to prevent Pokémon list from being hidden by the fixed header */
 .pokedex-container {
   margin-top: 250px;  /* Adjusted margin to account for the fixed header's height */
-  padding: 0 20px;    /* Added some padding for nicer spacing */
+  padding: 20px;      /* Added some padding for nicer spacing */
+  display: flex;      /* Use flexbox for centering */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  min-height: calc(100vh - 250px); /* Ensure it takes the full height minus the header */
 }
 
 /* Styling for loading text */
 .pokedex-container p {
   font-size: 18px;
   color: #333;
+  text-align: center; /* Center align text */
 }

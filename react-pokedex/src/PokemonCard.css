@@ -15,7 +15,7 @@
 
 /* Style for Pokémon types */
 .pokemon-card p {
-  margin: 5px 0; /* Add some margin for spacing */
+  margin: 2px 0; /* Add some margin for spacing */
 }
 
 .pokemon-card .type {
@@ -24,4 +24,16 @@
   border-radius: 5px; /* Rounded corners */
   margin: 2px; /* Margin between types */
   color: white; /* Text color */
+}
+
+/* Style for pokemon ID */
+
+.pokemon-card h4 {
+  margin: 10px 0 5px; /* Add some space below the ID */
+  font-size: .95rem; /* Adjust size as needed */
+  color: #555; /* Optional: Change color */
+}
+
+.pokemon-card h3 {
+  margin: 5px 0; /* Adjust margin as needed */
 }

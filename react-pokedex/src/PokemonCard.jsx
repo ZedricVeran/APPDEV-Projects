@@ -41,6 +41,12 @@ function PokemonCard({ name, url, onClick }) {
     fetchPokemonDetails();
   }, [url]);
 
+  // Extract Pokémon ID from URL and format it
+  const getPokemonId = (url) => {
+    const id = url.split('/').slice(-2, -1); // Extracts the ID from the URL
+    return `#${String(id).padStart(3, '0')}`; // Format ID with leading zeros
+  };
+
   return (
     <div className="pokemon-card" onClick={() => onClick(url)}>
       {pokemonDetails ? (
@@ -49,6 +55,7 @@ function PokemonCard({ name, url, onClick }) {
             src={pokemonDetails.sprites.front_default}
             alt={pokemonDetails.name}
           />
+          <h4>{getPokemonId(url)}</h4> {/* Display formatted Pokémon ID */}
           <h3>{pokemonDetails.name}</h3>
           <p>
             {pokemonDetails.types.map(type => (

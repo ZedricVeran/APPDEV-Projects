@@ -48,7 +48,13 @@ function PokemonCard({ name, url, onClick }) {
   };
 
   return (
-    <div className="pokemon-card" onClick={() => onClick(url)}>
+    <div 
+      className="pokemon-card" 
+      onClick={() => onClick(url)} 
+      style={{ 
+        borderColor: pokemonDetails && typeColors[pokemonDetails.types[0].type.name] 
+      }} // Set border color to primary type color
+    >
       {pokemonDetails ? (
         <>
           <img
@@ -58,15 +64,15 @@ function PokemonCard({ name, url, onClick }) {
           <h4>{getPokemonId(url)}</h4> {/* Display formatted Pokémon ID */}
           <h3>{pokemonDetails.name}</h3>
           <p>
-            {pokemonDetails.types.map(type => (
+            Types: {pokemonDetails.types.map(type => (
               <span 
                 key={type.type.name} 
                 className="type" 
-                style={{ backgroundColor: typeColors[type.type.name] || '#ccc' }} // Dynamic background color
+                style={{ backgroundColor: typeColors[type.type.name] || '#ccc' }} // Dynamic background color for types
               >
                 {type.type.name}
               </span>
-            )).reduce((prev, curr) => [prev, ' ', curr])}
+            )).reduce((prev, curr) => [prev, ', ', curr])}
           </p>
         </>
       ) : (

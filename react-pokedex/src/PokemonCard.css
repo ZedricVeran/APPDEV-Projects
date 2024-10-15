@@ -1,11 +1,18 @@
 .pokemon-card {
-  border: 1px solid #ddd;
+  border: 3px solid; /* Keep your existing border */
   border-radius: 10px;
-  padding: 10px; /* Adjusted padding for better spacing */
+  padding: 20px; /* Adjusted padding for better spacing */
   text-align: center;
   width: 150px; /* Ensure consistent width */
-  background-color: #f8f8f8;
+  background-color: rgba(248, 248, 248, 0.7); /* Set background to 40% transparency */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition for scaling and shadow */
   cursor: pointer; /* Indicate that the card is clickable */
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05); /* Slightly scale up the card */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.8); /* Change shadow to white on hover */
+  cursor: pointer; /* Change cursor to pointer */
 }
 
 .pokemon-card img {
@@ -26,8 +33,7 @@
   color: white; /* Text color */
 }
 
-/* Style for pokemon ID */
-
+/* Style for Pokémon ID */
 .pokemon-card h4 {
   margin: 10px 0 5px; /* Add some space below the ID */
   font-size: .95rem; /* Adjust size as needed */

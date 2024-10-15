@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Pokedex from './Pokedex';
 import PokemonModal from './PokemonModal';
+import Header from './Header'; // Import Header component
 import './App.css';
 
 function App() {
@@ -36,9 +37,21 @@ function App() {
   // Handle clicking a Pokémon card
   const handleCardClick = async (url) => {
     try {
+      // Fetch Pokémon details
       const response = await fetch(url);
       const data = await response.json();
-      setSelectedPokemon(data);
+
+      // Fetch species data
+      const speciesResponse = await fetch(data.species.url);
+      const speciesData = await speciesResponse.json();
+
+      // Combine both Pokémon details and species data
+      const pokemonWithSpecies = {
+        ...data,
+        speciesData,
+      };
+
+      setSelectedPokemon(pokemonWithSpecies);
     } catch (error) {
       console.error('Error fetching Pokémon details:', error);
     }
@@ -51,17 +64,8 @@ function App() {
 
   return (
     <div>
-      {/* Fixed Header */}
-      <div className="fixed-header">
-        <h1>Pokédex (Kanto)</h1>
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="Search Pokémon"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-      </div>
+      {/* Use Header component */}
+      <Header searchTerm={searchTerm} onSearch={handleSearch} />
 
       {/* Pokémon List */}
       <div className="pokedex-container">

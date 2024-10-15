@@ -1,39 +1,64 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Bring modal to the front */
-  }
-  
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .modal-content img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .modal-content button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .modal-content button:hover {
-    background-color: #0056b3;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* Background behind modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.7); /* Increased transparency (70% opaque) */
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  max-width: 600px;
+  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+  border: 3px solid rgba(255, 255, 255, 0.3); /* Softer border with increased transparency */
+}
+
+.modal-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image img {
+  width: 150px;
+  height: 150px;
+}
+
+.modal-details {
+  flex: 2;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.modal-details h2 {
+  margin-top: 0;
+  text-align: left;
+}
+
+.modal-details p {
+  margin: 5px 0;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}

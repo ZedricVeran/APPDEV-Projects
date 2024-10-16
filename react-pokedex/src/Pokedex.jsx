@@ -118,11 +118,14 @@ function PokemonModal({ pokemon, onClose }) {
   const mainType = pokemon.types[0].type.name;
   const backgroundColor = typeColors[mainType] || '#fff';
 
+  // Get the official artwork URL
+  const officialArtwork = pokemon.sprites.other['official-artwork'].front_default;
+
   return (
     <div className="modal-overlay">
       <div className="modal-content" style={{ backgroundColor }}>
         <div className="modal-image">
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+          <img src={officialArtwork} alt={pokemon.name} /> {/* Using the official artwork */}
         </div>
         <div className="modal-details">
           <h2>{pokemon.name}</h2>

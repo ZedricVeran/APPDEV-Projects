@@ -68,7 +68,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #14274E;
+  background-color: rgb(20, 39, 78, .9);
   gap: 20px;
   margin-top: 220px;
   margin-left: 40px;
@@ -87,7 +87,7 @@
   padding: 20px; /* Adjusted padding for better spacing */
   text-align: center;
   width: 150px; /* Ensure consistent width */
-  background-color: rgba(248, 248, 248, 0.7); /* Set background to 40% transparency */
+  background-color: rgba(214, 214, 214, 0.8); /* Set background to 40% transparency */
   transition: transform 0.3s, box-shadow 0.3s; /* Transition for scaling and shadow */
   cursor: pointer; /* Indicate that the card is clickable */
 }

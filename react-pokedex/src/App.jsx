@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Pokedex, PokemonModal } from './Pokedex'; // Combined components
 import Header from './Header'; // Importing Header component
+import Footer from './Footer';
 import './App.css';
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
           <PokemonModal pokemon={selectedPokemon} onClose={handleCloseModal} />
         )}
       </div>
+      <Footer />
     </div>
   );
 }

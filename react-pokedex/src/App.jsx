@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Pokedex from './Pokedex';
-import PokemonModal from './PokemonModal';
-import Header from './Header'; // Import Header component
+import { Pokedex, PokemonModal } from './Pokedex'; // Combined components
+import Header from './Header'; // Importing Header component
 import './App.css';
 
 function App() {
@@ -34,18 +33,13 @@ function App() {
     pokemon.name.toLowerCase().includes(searchTerm)
   );
 
-  // Handle clicking a Pokémon card
   const handleCardClick = async (url) => {
     try {
-      // Fetch Pokémon details
       const response = await fetch(url);
       const data = await response.json();
-
-      // Fetch species data
       const speciesResponse = await fetch(data.species.url);
       const speciesData = await speciesResponse.json();
 
-      // Combine both Pokémon details and species data
       const pokemonWithSpecies = {
         ...data,
         speciesData,
@@ -57,17 +51,14 @@ function App() {
     }
   };
 
-  // Handle closing the modal
   const handleCloseModal = () => {
     setSelectedPokemon(null);
   };
 
   return (
     <div>
-      {/* Use Header component */}
-      <Header searchTerm={searchTerm} onSearch={handleSearch} />
+      <Header searchTerm={searchTerm} onSearch={handleSearch} /> {/* Use Header component */}
 
-      {/* Pokémon List */}
       <div className="pokedex-container">
         {loading ? (
           <p>Loading Pokémon...</p>

@@ -1,0 +1,98 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    padding-left: 500px;
+    padding-right: 500px;
+    margin-top: 100px;
+    background-color: #f8f8f8;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h4 {
+    color: #555;
+}
+
+/* Shop Items */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Cart Items */
+.cart {
+    margin-top: 20px;
+}
+
+/* Input Field */
+input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Receipt Styles */
+.receipt {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.receipt h2 {
+    margin: 0;
+}
+
+.receipt ul {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.receipt p {
+    color: #333;
+}
+
+/* Checkout Button */
+.checkout-button {
+    margin-top: 20px;
+    background-color: #007BFF; /* Blue */
+}
+
+.checkout-button:hover {
+    background-color: #0056b3;
+}

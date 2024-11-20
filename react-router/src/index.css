@@ -1,0 +1,227 @@
+/* index.css */
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Deep dark background */
+  color: #e4e4e4; /* Light text color */
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Global link styles */
+a {
+  text-decoration: none;
+  color: #00bfff; /* Light cyan color for links */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: #ff0077; /* Hover effect: pinkish hue */
+  transform: scale(1.1); /* Slight scaling effect */
+}
+
+/* Header and Navigation Styles */
+header {
+  background-color: #1a1a1a; /* Slightly lighter dark background */
+  color: #e4e4e4;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  position: relative;
+  animation: fadeIn 1s ease-out;
+}
+
+header h1 {
+  font-size: 2.2rem; /* Smaller font size */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #00bfff;
+  letter-spacing: 1px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Reduced gap between links */
+  list-style-type: none; /* Remove bullets */
+  margin-top: 1rem;
+}
+
+nav li {
+  font-size: 1.1rem; /* Smaller font size for links */
+}
+
+nav li a {
+  color: #e4e4e4;
+  padding: 0.6rem 1rem; /* Smaller padding */
+  text-transform: uppercase;
+  letter-spacing: 0.8px; /* Slightly tighter letter spacing */
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav li a:hover {
+  background-color: #00bfff;
+  color: #121212;
+  transform: scale(1.05); /* Slight hover zoom */
+}
+
+/* Main Content Styles */
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  font-size: 1.8rem; /* Smaller heading */
+  color: #00bfff;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.4rem; /* Slightly smaller subheading */
+  color: #ffffff;
+  margin-top: 1.5rem;
+}
+
+p, li {
+  font-size: 1.1rem;
+  color: #dcdcdc;
+  line-height: 1.8;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+a {
+  color: #00bfff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: #ff0077;
+  transform: scale(1.1);
+}
+
+/* Footer Styles */
+footer {
+  background-color: #1a1a1a;
+  color: #e4e4e4;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  font-size: 1rem;
+  color: #999;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem; /* Smaller header on mobile */
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px; /* Reduced gap between links */
+  }
+
+  nav li a {
+    font-size: 1rem; /* Slightly smaller font on mobile */
+  }
+
+  main {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Apply styles to all <img> and <video> tags */
+img, video {
+  width: 100%;  /* Make sure both images and videos take full width of their container */
+  max-width: 800px; /* Limit the maximum width */
+  height: auto;    /* Maintain aspect ratio */
+  display: block;  /* Remove extra space below the media */
+  margin: 0 auto 20px auto; /* Center align and space between elements */
+  border-radius: 8px; /* Match the rounded corners of the container */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* If the media is a GIF, scale it properly */
+img[src*="gif"], video[src*="gif"] {
+  width: 100%; /* Ensure it scales properly */
+  max-width: 800px; /* Max width, adjust as necessary */
+  max-height: 500px; /* Limit height for large GIFs */
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Google Map Styles */
+.map-container {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 400px; /* Set a height for the map */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* To keep the map within the bounds */
+  margin: 20px auto;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove default iframe border */
+}

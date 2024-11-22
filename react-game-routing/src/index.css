@@ -1,0 +1,13 @@
+nav ul{
+  display: flex;
+  justify-content: left;
+  gap: 20px;
+  list-style-type: none;
+  margin-top: 1rem;
+}
+nav li{
+  font-size: 1rem;
+}
+nav li a{
+  text-decoration: none;
+}

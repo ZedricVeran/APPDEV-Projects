@@ -7,7 +7,7 @@ import Game from "./components/Game"
 function App() {
   return (
     <>
-      <h1 className="header">"This is my React Page"</h1>
+      <h1 className="header">Z&Z Reviews</h1>
       <nav>
         <ul>
           <li><Link to={"/"}>Home</Link></li >

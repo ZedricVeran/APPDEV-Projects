@@ -1,0 +1,87 @@
+/* Imports */
+@import url("https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css");
+
+/* Global CSS */
+*{
+  margin: 0%;
+  padding: 0%;
+  font-family: 'GothamPro' , sans-serif;
+  font-weight: lighter;
+  color: white;
+}
+
+html{
+  background-color: black;
+}
+
+/*CSS for the headings and paragraph */
+.large1{
+  font-size: 50px;
+  line-height: 64px;
+}
+.large2{
+  font-size: 46px;
+  line-height: 54px;
+}
+h4{
+  font-size: 20px;
+}
+h6{
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.para{
+  font-size: 15px;
+  color: gray;
+  margin: 15px 0 20px 0;
+}
+
+/* Navbar CSS */
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+nav img{
+  width: 25%;
+}
+
+nav ul{
+  display: flex;
+  justify-content: right;
+
+  list-style-type: none;
+}
+
+
+nav li a{
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+  position: relative;
+  transition: 0.2s ease;
+}
+
+nav li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(243, 240, 50);
+  transition: width 0.4s;
+}
+
+nav li a:hover{
+  color: gold;
+}
+
+nav li a:hover::before{
+  width: 100%;
+}
+

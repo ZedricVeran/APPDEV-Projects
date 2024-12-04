@@ -29,7 +29,7 @@ export default function Home(){
       >
             <div className="content">
                 <h1>Type Your World, One Key at a Time</h1>
-                <p>Discover keyboards designed for every type of user.</p>
+                <p>Discover keyboards designed for every types of users.</p>
                 <button type="button">Button 1</button>
                 <button type="button">Button 2</button>
             </div>
@@ -37,7 +37,7 @@ export default function Home(){
         <br />
         <br />
         {/* Banner 1 */}
-        {/* <div className="banner-section1">
+        <div className="banner-section1">
             <div className="banner1">
                 <img src="https://via.placeholder.com/650x650" alt="keyboard1" />
                 <h2>Office keyboard</h2>
@@ -46,8 +46,9 @@ export default function Home(){
             <div className="banner2">
                 <img src="https://via.placeholder.com/650x650" alt="keyboard2" />
                 <h2>Mechanical keyboard</h2>
+                <button type="button">Button 3</button>
             </div>
-        </div> */}
+        </div>
 
         </>
     )

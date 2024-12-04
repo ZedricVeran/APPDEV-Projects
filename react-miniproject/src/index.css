@@ -89,7 +89,7 @@ nav li a:hover::before{
 /* Hero Banner */
 
 .hero-banner {
-  height: 80vh; /* Full screen height */
+  height: 90vh; /* Full screen height */
   background-size: cover;
   background-position: center;
   justify-content: center;
@@ -107,16 +107,17 @@ nav li a:hover::before{
 }
 
 .content h1{
-  font-size: 4rem;
+  font-size: 3.4rem;
   margin-bottom: 20px;
-  font-weight: bolder;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .content p {
   font-size: 1.25rem;
 }
 
-button {
+.content button {
   padding: 20px 40px;
   font-size: 16px;
   margin-top: 20px;
@@ -126,5 +127,12 @@ button {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+/* Banner 1 */
+.banner-section1{
+  display: flex;
+  margin-right: 80px;
+  justify-content: center;
 }
 

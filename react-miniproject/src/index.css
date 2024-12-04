@@ -85,3 +85,46 @@ nav li a:hover::before{
   width: 100%;
 }
 
+/* Home */
+/* Hero Banner */
+
+.hero-banner {
+  height: 80vh; /* Full screen height */
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: background-image 1s ease-in-out; /* Smooth background transition */
+}
+
+.content{
+  margin-left: 30px;
+  margin-top: 500px;
+  justify-content: left;
+  text-align: left;
+  display: inline-block;
+}
+
+.content h1{
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+
+.content p {
+  font-size: 1.25rem;
+}
+
+button {
+  padding: 20px 40px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+

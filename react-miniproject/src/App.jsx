@@ -7,6 +7,9 @@ import Developer from "./components/Developer"
 import About from "./components/About"
 import logo from "./assets/Veran_logo2.png"
 import NotFound from "./components/NotFound"
+import Product from "./components/Product"
+import TeamMembers from "./components/TeamMembers"
+import KeyboardBuilder from "./components/KeyboardBuilder"
 function App() {
   return (
     <>
@@ -31,13 +34,17 @@ function App() {
     {/* Routes of the application */}
     <Routes>
       <Route path = "/" element = {<Home/>}></Route>
+      <Route path="/keyboard-builder" element={<KeyboardBuilder />}></Route>
       <Route path = "/Products">
         <Route index element={<Products/>}></Route>
-        <Route path=":productId"></Route>
+        <Route path=":keyboardId" element={<Product/>}></Route>
       </Route>
       <Route path = "/Showcase" element = {<Showcase/>}></Route>
       <Route path = "/Reviews" element = {<Reviews/>}></Route>
-      <Route path = "/About" element = {<About/>}></Route>
+      <Route path="/About">
+        <Route index element={<About />}></Route>
+        <Route path=":memberId" element={<TeamMembers />}></Route>
+      </Route>
       <Route path = "/Developer" element = {<Developer/>}></Route>
       <Route path="*" element={<NotFound/>}></Route>
     </Routes>

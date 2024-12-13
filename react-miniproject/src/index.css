@@ -47,7 +47,7 @@ nav{
 }
 
 nav img{
-  width: 25%;
+  width: 22%;
 }
 
 nav ul{
@@ -73,12 +73,12 @@ nav li a::before {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: rgb(243, 240, 50);
+  background-color: rgb(243, 153, 50);
   transition: width 0.4s;
 }
 
 nav li a:hover{
-  color: gold;
+  color: rgb(255, 149, 0);
 }
 
 nav li a:hover::before{
@@ -89,25 +89,38 @@ nav li a:hover::before{
 /* Hero Banner */
 
 .hero-banner {
-  height: 90vh; /* Full screen height */
+  position: relative;
+  background-image: url(https://wallpaperaccess.com/full/2126186.jpg); /* Example background */
   background-size: cover;
   background-position: center;
+  height: 100vh; /* Adjust based on your desired height */
+  display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  transition: background-image 1s ease-in-out; /* Smooth background transition */
 }
 
-.content{
-  margin-left: 30px;
-  margin-top: 500px;
-  justify-content: left;
-  text-align: left;
-  display: inline-block;
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  z-index: 1;
+  filter: brightness(0.8); /* Reduce the brightness of the background */
 }
 
-.content h1{
-  font-size: 3.4rem;
+.content {
+  position: relative;
+  z-index: 2; /* Ensures content stays above the overlay */
+  text-align: center;
+  color: white; /* Adjust text color */
+  max-width: 600px; /* Optional: to limit the width of the content */
+}
+
+.content h1 {
+  font-size: 2.8rem;
   margin-bottom: 20px;
   font-weight: bold;
   text-transform: uppercase;
@@ -127,12 +140,824 @@ nav li a:hover::before{
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: inline-block; /* Ensure the button stays inline with text */
 }
 
-/* Banner 1 */
-.banner-section1{
+
+/* Banner Section */
+.banner-section1 {
   display: flex;
-  margin-right: 80px;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
 }
 
+/* Individual Banner Styling */
+.banner1, .banner2 {
+  position: relative;
+  flex: 1;
+  height: 600px; /* Increased height for more prominence */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1e1e1e; /* Dark banner background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* Image Styling with Fixed Dimensions and Zoom Effect */
+.banner1 img, .banner2 img {
+  width: 100%;
+  height: 100%; /* Ensures the image covers the entire banner */
+  object-fit: cover; /* Ensures proper scaling and cropping */
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.8); /* Optional: slightly darken the image */
+}
+
+.banner1:hover img, .banner2:hover img {
+  transform: scale(1.1); /* Zoom effect */
+  filter: brightness(0.5); /* Optional: slightly darken the image */
+}
+
+/* Overlay Content */
+.banner1 .content, .banner2 .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 20px;
+  border-radius: 8px;
+  width: 80%; /* Adjust width as needed */
+  color: #ffffff;
+  text-align: center;
+}
+
+.banner1 .content h2, .banner2 .content h2 {
+  font-size: 24px; /* Adjusted font size for readability */
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.banner1 .content button, .banner2 .content button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 5px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.banner1 .content button:hover, .banner2 .content button:hover {
+  background-color: #ff5722;
+  color: #ffffff;
+}
+
+/* Product CSS */
+/* Container */
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'GothamPro', sans-serif;
+}
+/* Left Section: Image Gallery */
+.product-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.product-main-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  object-fit: cover;
+}
+.product-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+}
+.product-thumbnail {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.product-thumbnail:hover {
+  transform: scale(1.05);
+}
+.product-thumbnail.selected {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+/* Right Section: Product Details */
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.product-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.product-rating {
+  color: #ffcc00;
+  font-size: 1.2rem;
+}
+.no-rating {
+  color: #aaa;
+  font-size: 1rem;
+}
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(208, 208, 208);
+}
+.add-to-cart-button {
+  background-color: #ffdd00;
+  color: black;  
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.add-to-cart-button:hover {
+  background-color: #b3b300;
+}
+/* Lists */
+.product-specifications,
+.product-included {
+  padding: 0;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.product-specifications li,
+.product-included li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+ /* Header */
+.pro-header {
+  display: flex;
+  flex-direction: row; /* Align the header and description side by side */
+  justify-content: space-between; /* Ensure they have space between them */
+  align-items: flex-start; /* Align items to the top */
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  word-wrap: break-word;
+}
+.pro-head-container {
+  flex: 1;
+  padding-right: 20px; /* Add space between header and description */
+}
+.product-header {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+/* Descriptions */
+.product-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #c3c3c3;
+}
+.pro-desc-container {
+  flex: 2; /* Take up more space for the description */
+}
+/* reviews */
+.reviews-container {
+  background-color: #121212;
+  color: #ffffff;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2%;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.rating-input, .review-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.rating-input::placeholder, .review-textarea::placeholder {
+  color: #777;
+}
+
+.submit-btn {
+  background-color: #0078d4;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #005bb5;
+}
+
+.history-title {
+  margin-top: 30px;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.review-history {
+  margin-top: 10px;
+}
+
+.review-history > div {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #1c1c1c;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+.name-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #1c1c1c;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.name-input::placeholder {
+  color: #777;
+}
+.review-name{
+  font-size: 25px;
+}
+.review-text{
+  font-size:25px
+}
+
+/* products */
+.keyboard-header{
+  font-weight: bold;
+  margin: 20px;
+  text-transform: uppercase;
+}
+.keyboard-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap onto a new line */
+  justify-content: space-between; /* Distribute items with space between */
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  list-style-type: none;
+}
+
+.keyboard-list li {
+  background: transparent;
+  border: white 1px solid;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 calc(25% - 20px); /* 4 items per row with space */
+  max-width: 300px; /* Prevent the item from growing too wide */
+  color: white;
+}
+
+.keyboard-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+}
+
+.keyboard-list img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.keyboard-list a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+
+}
+
+.keyboard-list a:hover {
+  color: #0077cc;
+}
+
+.keyboard-list .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0077cc;
+}
+.star-rating{
+  color: #ffcc00;
+}
+
+/* Developer Banner Styles */
+.dev-banner {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 5% auto;
+  background: #222; /* Dark background to contrast with text */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow for subtle contrast */
+}
+
+.dev-banner h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #f36f45; /* Accent color for headings */
+}
+
+/* Profile Section */
+.dev-banner1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px;
+  background: #333; /* Dark background for profile section */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow */
+}
+
+.section1 {
+  flex: 1;
+  text-align: center;
+}
+
+.section1 img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #f36f45;
+}
+
+.section2 h2 {
+  color: #f36f45; /* Accent color */
+  margin-bottom: 10px;
+}
+
+.section1 h1 {
+  margin: 10px 0;
+  font-size: 1.8em;
+  color: white; /* White text for better contrast */
+}
+
+.section1 p {
+  color: #bbb; /* Lighter gray for text */
+}
+
+.section2 {
+  flex: 2;
+  margin-left: 20px;
+}
+
+.section2 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.section2 li {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #ddd; /* Light gray for better readability */
+}
+
+/* About Me Section */
+.about-me-section {
+  margin-top: 20px;
+}
+
+.about-me-section h1 {
+  font-size: 2em;
+  color: #f36f45; /* Accent color for consistency */
+}
+
+.about-me-section hr {
+  width: 50px;
+  height: 4px;
+  background: #f36f45; /* Accent color */
+  border: none;
+  margin: 10px 0;
+}
+
+.about-me-section p {
+  line-height: 1.8;
+  font-size: 1em;
+  color: #bbb; /* Light gray for text */
+}
+
+/* What I'm Doing Section */
+.doing-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.doing-section div {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+  background: #444; /* Darker background to fit the theme */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Light shadow for depth */
+}
+
+.doing-section div img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.doing-section div h4 {
+  font-size: 1.2em;
+  color: #f36f45; /* Accent color for consistency */
+}
+
+.doing-section div p {
+  font-size: 0.9em;
+  color: #bbb; /* Light gray for text */
+}
+
+/* Skills Section */
+.skills-section ul {
+  list-style: none;
+  padding: 0;
+  justify-content: left;
+}
+
+.skills-section li {
+  padding: 10px 15px;
+  background: #f36f45; /* Accent color */
+  color: white;
+  border-radius: 15px;
+  margin: 5px;
+  font-size: 0.9em;
+  text-align: center;
+}
+/* reviews page */
+/* Reviews Container */
+.reviews-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.reviews-container h1 {
+  font-size: 2em;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+.reviews-container h4 {
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+}
+
+/* Input Group */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  border: 2px solid #e68a00;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: white;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #e68a00;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Review History */
+.review-history {
+  margin-top: 20px;
+}
+
+.review-card {
+  background: black;
+  border: 2px solid #e68a00;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+  background: rgb(0, 0, 0);
+  color: black;
+}
+
+.review-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #e68a00;
+}
+
+.review-card h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.review-card .review-date {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.review-card .review-text {
+  font-size: 1em;
+  line-height: 1.5;
+  color: white;
+}
+
+/* Mission and Vision Sections */
+.mission-section, .vision-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.mission-section img, .vision-section img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 2px solid #444;
+}
+
+.mission-section h1, .vision-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ff9800; /* Highlighted orange */
+}
+
+.mission-section p, .vision-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Employee Section */
+.employee-section {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: #121212; /* Slightly lighter black */
+  border-top: 2px solid #444;
+}
+
+.employee-section h1 {
+  font-size: 2.5rem;
+  color: #ff9800;
+  margin-bottom: 2rem;
+}
+
+.employee-section .employee1, 
+.employee-section .employee2, 
+.employee-section .employee3 {
+  display: inline-block;
+  width: 300px;
+  margin: 1rem;
+  text-align: center;
+  background-color: #1c1c1c;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.employee-section img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #ff9800;
+}
+
+.employee-section h1 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.employee-section h4 {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.employee-section button {
+  padding: 0.5rem 1rem;
+  background-color: #ff9800;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.employee-section button:hover {
+  background-color: #e68a00;
+}
+
+
+/* Main container for the builder */
+.keyboard-builder-header {
+  text-align: center;
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.keyboard-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.keyboard-image img{
+  border-radius: 5%;
+}
+
+.selections {
+  color: white;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;  /* Keeps selection forms aligned */
+}
+
+.keyboard-builder-button {
+  background-color: #5c6bc0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.keyboard-builder-button:hover {
+  background-color: #3f51b5;
+}
+
+.price-display {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.MuiFormControl-root {
+  margin-bottom: 20px;
+}
+
+.MuiInputLabel-root {
+  color: white;
+}
+
+.MuiSelect-root {
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+.MuiMenuItem-root {
+  background-color: #222;
+  color: white;
+}
+
+/* Flexbox container for the image and selection */
+.Grid2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.MuiGrid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* General footer styling */
+footer {
+  background-color: #121212; /* Dark background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 20px 0; /* Padding for spacing */
+  font-size: 14px; /* Adjust text size */
+  border-top: 1px solid #333; /* Optional: Add a subtle border on top */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Link styling inside footer */
+footer a {
+  color: #bbb; /* Light grey color for footer links */
+  text-decoration: none; /* Remove underline */
+  margin: 0 10px; /* Add spacing between links */
+}
+
+footer a:hover {
+  color: #fff; /* Change to white on hover */
+  text-decoration: underline; /* Underline effect on hover */
+}
+
+/* Footer copyright styling */
+footer p {
+  margin: 0;
+}

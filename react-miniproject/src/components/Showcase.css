@@ -1,0 +1,65 @@
+/* Showcase.css */
+
+body {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text for contrast */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+.features-title, .testimonials-title, .stats-title {
+    font-size: 2em;
+    margin: 20px 0;
+    text-align: center;
+    color: #bb86fc; /* Highlighted color */
+}
+
+.features-list, .stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.feature-item, .stat-item {
+    background-color: #1e1e1e;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.testimonials {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.testimonial {
+    background-color: #1e1e1e;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.quote {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.author {
+    text-align: right;
+    font-size: 1em;
+    color: #a0a0a0;
+}
